@@ -1,6 +1,5 @@
 {
-  "infoList": 
-  [
+  "infoList": [
     {
       "panelTypeString": "StartPanel",
       "path": "Prefabs/UIPanel/StartPanel"
@@ -8,6 +7,10 @@
     {
       "panelTypeString": "CollegePanel",
       "path": "Prefabs/UIPanel/CollegePanel"
+    },
+    {
+      "panelTypeString": "EndPanel",
+      "path": "Prefabs/UIPanel/EndPanel"
     }
   ]
 }

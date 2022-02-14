@@ -6,4 +6,5 @@ public enum UIPanelType
 {
     StartPanel,
     CollegePanel,
+    EndPanel,
 }
