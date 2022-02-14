@@ -64,9 +64,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Panel\CollegePanel.cs" />
     <Compile Include="Assets\Scripts\Panel\StartPanel.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\System\SaveSystem.cs" />
     <Compile Include="Assets\UIFramework\Base\BasePanel.cs" />
     <Compile Include="Assets\UIFramework\Extension\DictonaryExtension.cs" />
     <Compile Include="Assets\UIFramework\Manager\UIManager.cs" />
