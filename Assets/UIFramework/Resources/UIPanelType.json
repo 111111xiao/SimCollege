@@ -2,15 +2,18 @@
   "infoList": [
     {
       "panelTypeString": "StartPanel",
-      "path": "Prefabs/UIPanel/StartPanel"
+      "path": "Prefabs/UIPanel/StartPanel",
+      "windowTypeString": "Panel"
     },
     {
       "panelTypeString": "CollegePanel",
-      "path": "Prefabs/UIPanel/CollegePanel"
+      "path": "Prefabs/UIPanel/CollegePanel",
+      "windowTypeString": "Panel"
     },
     {
       "panelTypeString": "EndPanel",
-      "path": "Prefabs/UIPanel/EndPanel"
+      "path": "Prefabs/UIPanel/EndPanel",
+      "windowTypeString": "Panel"
     }
   ]
 }

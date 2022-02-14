@@ -39,7 +39,7 @@ public class BasePanel : MonoBehaviour
 
     public virtual void OnExit()
     {
-
+        Destroy(this.gameObject);
     }
 
     private void Awake()

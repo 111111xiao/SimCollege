@@ -34,7 +34,7 @@ public class UIManager
             return canvasTransform;
         }
     }
-    private Dictionary<UIPanelType, string> panelPathDictionary;
+    private Dictionary<UIPanelType, PanelInfo> panelPathDictionary;
     private Dictionary<UIPanelType, BasePanel> panelDictionary;
     private Stack<BasePanel> panelStack;
 
@@ -48,6 +48,13 @@ public class UIManager
         if (panelStack == null)
         {
             panelStack = new Stack<BasePanel>();
+        }
+        if (panelPathDictionary.TryGet(panelType).windowType == UIPanelWindowType.Panel)
+        {
+            while (panelStack.Count > 0)
+            {
+                PopPanel();
+            }
         }
 
         if (panelStack.Count > 0)
@@ -63,7 +70,7 @@ public class UIManager
 
     public void PopPanel()
     {
-
+        Debug.Log("PopPanel");
         if (panelStack == null)
         {
             panelStack = new Stack<BasePanel>();
@@ -96,7 +103,7 @@ public class UIManager
         if (panel == null)
         {
             // 找不到面板就实例化面板
-            string path = panelPathDictionary.TryGet(panelType);
+            string path = panelPathDictionary.TryGet(panelType).path;
             //panelPathDictionary.TryGetValue(panelType, out path);
             Debug.Log(path);
             GameObject instancePanel = GameObject.Instantiate(Resources.Load(path)) as GameObject;
@@ -113,9 +120,24 @@ public class UIManager
         public List<UIPanelInfo> infoList;
     }
 
+    /// <summary>
+    /// 界面路径和界面署于全屏还是窗口
+    /// </summary>
+    class PanelInfo
+    {
+        public string path;
+        public UIPanelWindowType windowType;
+
+        public PanelInfo(string Path, UIPanelWindowType Type)
+        {
+            path = Path;
+            windowType = Type;
+        }
+    }
+
     private void ParseUIPanelTypeJson()
     {
-        panelPathDictionary = new Dictionary<UIPanelType, string>();
+        panelPathDictionary = new Dictionary<UIPanelType, PanelInfo>();
         TextAsset ta = Resources.Load<TextAsset>("UIPanelType");
         UIPanelTypeJson jsonObject = JsonUtility.FromJson<UIPanelTypeJson>(ta.text);
 
@@ -123,14 +145,8 @@ public class UIManager
         {
             //Debug.Log(panelInfo.panelType);
             //Debug.Log(panelInfo.path);
-            panelPathDictionary.Add(panelInfo.panelType, panelInfo.path);
+            panelPathDictionary.Add(panelInfo.panelType, new PanelInfo(panelInfo.path, panelInfo.windowType));
         }
     }
-
-    public void Test()
-    {
-        string path;
-        panelPathDictionary.TryGetValue(UIPanelType.StartPanel, out path);
-        Debug.Log(path);
-    }
+    
 }

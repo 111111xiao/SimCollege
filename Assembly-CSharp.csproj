@@ -73,6 +73,7 @@
     <Compile Include="Assets\UIFramework\Manager\UIRoot.cs" />
     <Compile Include="Assets\UIFramework\UIPanel\UIPanelInfo.cs" />
     <Compile Include="Assets\UIFramework\UIPanel\UIPanelType.cs" />
+    <Compile Include="Assets\UIFramework\UIPanel\UIPanelWindowType.cs" />
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>F:/U3d/workspace/SimCollege/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>

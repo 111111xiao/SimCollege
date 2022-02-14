@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private static int MaxRound = 48;
+    private static int MaxRound = 4;
     // 当前回合数可能需要存档
     private static int currentRound = 1;
 
