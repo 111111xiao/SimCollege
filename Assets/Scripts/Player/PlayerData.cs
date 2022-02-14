@@ -7,16 +7,6 @@ public class PlayerData
 {
     private const string PLAYER_DATA_FILE_NAME = "playerData.sav";
 
-    public void Save()
-    {
-        SaveByJson();
-    }
-
-    public void Load()
-    {
-        LoadFromJson();
-    }
-
     [Serializable]
     class SaveData
     {
@@ -42,5 +32,10 @@ public class PlayerData
     {
         SaveData save = SaveSystem.LoadFromJson<SaveData>(PLAYER_DATA_FILE_NAME);
         LoadingData(save);
+    }
+
+    public void DeleteFile()
+    {
+        SaveSystem.DeleteSaveFile(PLAYER_DATA_FILE_NAME);
     }
 }

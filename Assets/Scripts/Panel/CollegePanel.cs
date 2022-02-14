@@ -8,10 +8,12 @@ public class CollegePanel : BasePanel
     private GameObject btnNext;
     private GameObject btnSave;
     private Text leftRound;
+    private GameObject btnBackToMain;
     public override void Init()
     {
         btnNext = GameObject.Find("btnNext");
         btnSave = GameObject.Find("btnSave");
+        btnBackToMain = GameObject.Find("btnBackToMain");
         leftRound = GameObject.Find("UserView/Round/Value").GetComponent<Text>();
     }
 
@@ -19,6 +21,7 @@ public class CollegePanel : BasePanel
     {
         AddButtonClick(btnNext, OnNextClick);
         AddButtonClick(btnSave, OnSaveClick);
+        AddButtonClick(btnBackToMain, OnBackToMainClick);
     }
     public void OnSaveClick()
     {
@@ -32,6 +35,10 @@ public class CollegePanel : BasePanel
         Debug.Log("点击下一回合");
         GameManager.RoundPlus();
         OnEnter();
+    }
+    public void OnBackToMainClick()
+    {
+        UIManager.Instance.PushPanel(UIPanelType.StartPanel);
     }
 
     public override void OnEnter()

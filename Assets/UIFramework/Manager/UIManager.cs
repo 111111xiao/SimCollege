@@ -55,6 +55,11 @@ public class UIManager
             {
                 PopPanel();
             }
+
+            if (panelDictionary != null)
+            {
+                panelDictionary.Clear();
+            }
         }
 
         if (panelStack.Count > 0)
@@ -98,8 +103,8 @@ public class UIManager
             panelDictionary = new Dictionary<UIPanelType, BasePanel>();
         }
 
-        BasePanel panel;
-        panelDictionary.TryGetValue(panelType, out panel);
+        BasePanel panel = panelDictionary.TryGet(panelType);
+        Debug.Log($"try get {panel}");
         if (panel == null)
         {
             // 找不到面板就实例化面板
@@ -109,7 +114,8 @@ public class UIManager
             GameObject instancePanel = GameObject.Instantiate(Resources.Load(path)) as GameObject;
             instancePanel.transform.SetParent(CanvasTransform, false);
             panel = instancePanel.GetComponent<BasePanel>();
-            panelDictionary.Add(panelType, panel);
+            panelDictionary.Add(panelType, instancePanel.GetComponent<BasePanel>());
+            Debug.Log($"add panel {panel}");
         }
         return panel;
     }

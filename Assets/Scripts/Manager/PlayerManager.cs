@@ -31,4 +31,10 @@ public class PlayerManager : MonoBehaviour
         playerData = new PlayerData();
         playerData.LoadFromJson();
     }
+
+    public void DeleteSaveFile()
+    {
+        playerData = new PlayerData();
+        playerData.DeleteFile();
+    }
 }

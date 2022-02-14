@@ -22,6 +22,7 @@ public class StartPanel : BasePanel
 
     public void OnStartBtnClick()
     {
+        GameManager.Instance.ResetData();
         UIManager.Instance.PushPanel(UIPanelType.CollegePanel);
     }
     public void OnLoadBtnClick()
@@ -34,16 +35,5 @@ public class StartPanel : BasePanel
     {
         canvasGroup.blocksRaycasts = false;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

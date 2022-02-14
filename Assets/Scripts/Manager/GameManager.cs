@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
         set => currentRound = value;
     }
 
+    public void ResetData()
+    {
+        currentRound = 1;
+    }
+
     public static int GetLeftRound()
     {
         return MaxRound - currentRound;
