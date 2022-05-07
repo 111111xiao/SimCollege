@@ -24,4 +24,13 @@ public class CommonManager{
             return yellowColor;
         }
     }
+
+    public static bool CheckEnergyEnough(float value){
+        float remain = PlayerManager.Instance.GetData(PlayerDataType.Energy) + value;
+        if (remain < 0){
+            UIManager.Instance.PushPanel<string>(UIPanelType.TipPopup, "精力不足!");
+            return false;
+        }
+        return true;
+    }
 }

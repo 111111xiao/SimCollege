@@ -3,5 +3,5 @@ public enum EventType
     CreateUserNextStory,
     CreateUserNextTalent,
 
-    RoomStudy,
+    SelectUnityActionAndStringList,
 }

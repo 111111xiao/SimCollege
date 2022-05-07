@@ -78,8 +78,10 @@
     <Compile Include="Assets\Scripts\Panel\BuildInfoPopup.cs" />
     <Compile Include="Assets\Scripts\Panel\CollegePanel.cs" />
     <Compile Include="Assets\Scripts\Panel\CreateUserPanel.cs" />
+    <Compile Include="Assets\Scripts\Panel\HomePanel.cs" />
     <Compile Include="Assets\Scripts\Panel\OutPanel.cs" />
     <Compile Include="Assets\Scripts\Panel\StartPanel.cs" />
+    <Compile Include="Assets\Scripts\Panel\TipPopup.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
     <Compile Include="Assets\Scripts\System\SaveSystem.cs" />
     <Compile Include="Assets\UIFramework\Base\BasePanel.cs" />

@@ -29,6 +29,16 @@
       "panelTypeString": "OutPanel",
       "path": "Prefabs/UIPanel/OutPanel",
       "windowTypeString": "Panel"
+    },
+    {
+      "panelTypeString": "HomePanel",
+      "path": "Prefabs/UIPanel/HomePanel",
+      "windowTypeString": "Panel"
+    },
+    {
+      "panelTypeString": "TipPopup",
+      "path": "Prefabs/UIPanel/TipPopup",
+      "windowTypeString": "Popup"
     }
   ]
 }

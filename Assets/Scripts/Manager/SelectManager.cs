@@ -544,13 +544,87 @@ public class SelectManager
     #region 宿舍选项
     public class StudyInRoom{
         public static string desc = "效率一般的学习，没有那么卷也没有那么高效";
+        public static string useful = "精力-5 知识+3";
         public static string title = "宿舍自习";
         public static void ClickFunc(){
-            EventCenter.Dispatcher<UnityAction, string>(EventType.RoomStudy, ConfirmFunc, desc);
+            List<string> list = new List<string>();
+            list.Add(desc);
+            list.Add(useful);
+            EventCenter.Dispatcher<UnityAction, List<string>>(EventType.SelectUnityActionAndStringList, ConfirmFunc, list);
         }
 
         public static void ConfirmFunc(){
-            PlayerManager.Instance.ChangeData(PlayerDataType.Energy, 10);
+            if (CommonManager.CheckEnergyEnough(-5)){
+                PlayerManager.Instance.ChangeData(PlayerDataType.Energy, -5);
+                PlayerManager.Instance.ChangeData(PlayerDataType.Knowledge, 3);
+                UIManager.Instance.PushPanel<string>(UIPanelType.TipPopup, useful);
+            }
+        }
+    }
+    #endregion
+    #region 商店选项
+    public class ShopBuyNiceCloth{
+        public static string desc = "买新衣服,这会使得你的虚荣心得到满足,但是现在还没添加钱这种道具,先扣你的精力吧";
+        public static string useful = "精力-30 虚荣-30 魅力+10";
+        public static string title = "买新衣服";
+        public static void ClickFunc(){
+            List<string> list = new List<string>();
+            list.Add(desc);
+            list.Add(useful);
+            EventCenter.Dispatcher<UnityAction, List<string>>(EventType.SelectUnityActionAndStringList, ConfirmFunc, list);
+        }
+
+        public static void ConfirmFunc(){
+            if (CommonManager.CheckEnergyEnough(-30)){
+                PlayerManager.Instance.ChangeData(PlayerDataType.Energy, -30);
+                PlayerManager.Instance.ChangeData(PlayerDataType.Vanity, -30);
+                PlayerManager.Instance.ChangeData(PlayerDataType.Charm, 10);
+                UIManager.Instance.PushPanel<string>(UIPanelType.TipPopup, useful);
+            }
+        }
+    }
+    #endregion
+    #region 书架选项
+    public class BookWatchNovel{
+        public static string desc = "看小说,这使你疲劳但是快乐";
+        public static string useful = "精力-20 心情+10";
+        public static string title = "看小说";
+        public static void ClickFunc(){
+            List<string> list = new List<string>();
+            list.Add(desc);
+            list.Add(useful);
+            EventCenter.Dispatcher<UnityAction, List<string>>(EventType.SelectUnityActionAndStringList, ConfirmFunc, list);
+        }
+
+        public static void ConfirmFunc(){
+            if (CommonManager.CheckEnergyEnough(-20)){
+                PlayerManager.Instance.ChangeData(PlayerDataType.Energy, -20);
+                PlayerManager.Instance.ChangeData(PlayerDataType.Mood, 10);
+                UIManager.Instance.PushPanel<string>(UIPanelType.TipPopup, useful);
+            }
+        }
+    }
+    #endregion
+    #region 书桌选项
+    public class DeckSelfStudy{
+        public static string desc = "自学,压力好大啊，好枯燥啊";
+        public static string useful = "精力-20 心情-10 知识+20 压力+5";
+        public static string title = "自学";
+        public static void ClickFunc(){
+            List<string> list = new List<string>();
+            list.Add(desc);
+            list.Add(useful);
+            EventCenter.Dispatcher<UnityAction, List<string>>(EventType.SelectUnityActionAndStringList, ConfirmFunc, list);
+        }
+
+        public static void ConfirmFunc(){
+            if (CommonManager.CheckEnergyEnough(-20)){
+                PlayerManager.Instance.ChangeData(PlayerDataType.Energy, -20);
+                PlayerManager.Instance.ChangeData(PlayerDataType.Mood, -10);
+                PlayerManager.Instance.ChangeData(PlayerDataType.Knowledge, 20);
+                PlayerManager.Instance.ChangeData(PlayerDataType.Pressure, 5);
+                UIManager.Instance.PushPanel<string>(UIPanelType.TipPopup, useful);
+            }
         }
     }
     #endregion

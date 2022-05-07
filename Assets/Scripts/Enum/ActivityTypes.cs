@@ -4,4 +4,7 @@ public enum ActivityTypes
     Room,
     //–£Õ‚
     Shop,
+    //º“Õ•
+    Book,
+    Deck,
 }

@@ -10,4 +10,6 @@ public enum UIPanelType
     EndPanel,
     BuildInfoPopup,
     OutPanel,
+    HomePanel,
+    TipPopup,
 }

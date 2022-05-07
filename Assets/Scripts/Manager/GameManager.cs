@@ -40,12 +40,25 @@ public class GameManager
 
     public static void RoundPlus()
     {
-        currentRound += 1;
+        currentRound += 1;        
         Debug.Log($"当前回合是{currentRound}");
+        PlayerManager.Instance.ChangeData(PlayerDataType.Energy, 100);
         if (currentRound == MaxRound)
         {
             UIManager.Instance.PushPanel(UIPanelType.EndPanel);
+            return;
         }
+        if (currentRound >= 6 && currentRound % 6 == 0){
+            //回家
+            UIManager.Instance.PushPanel(UIPanelType.HomePanel);
+            return;
+        }
+        if (currentRound >= 6 && currentRound % 6 == 2){
+            // 返校
+            UIManager.Instance.PushPanel(UIPanelType.CollegePanel);
+            return;
+        }
+
     }
     public void ExitGame()
     {
