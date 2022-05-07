@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager
 {
     private static GameManager _instance;
 
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private static int MaxRound = 4;
+    private static int MaxRound = 48;
     // 当前回合数可能需要存档
     private static int currentRound = 1;
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     public void ResetData()
     {
         currentRound = 1;
+        PlayerManager.Instance.Init();
     }
 
     public static int GetLeftRound()
@@ -45,16 +47,13 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.PushPanel(UIPanelType.EndPanel);
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
+    public void ExitGame()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //预处理
+#if UNITY_EDITOR    //在编辑器模式下
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

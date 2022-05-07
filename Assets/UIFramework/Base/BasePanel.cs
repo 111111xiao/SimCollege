@@ -13,6 +13,18 @@ public class BasePanel : MonoBehaviour
         btn.onClick.AddListener(call);
     }
 
+    public void RemoveButtonClick(GameObject go, UnityAction call)
+    {
+        Button btn = go.GetComponent<Button>();
+        btn.onClick.RemoveListener(call);
+    }
+
+    public void RemoveAllButtonClickListener(GameObject go)
+    {
+        Button btn = go.GetComponent<Button>();
+        btn.onClick.RemoveAllListeners();
+    }
+
     public virtual void Init()
     {
 
@@ -23,6 +35,11 @@ public class BasePanel : MonoBehaviour
     }
 
     public virtual void OnEnter()
+    {
+
+    }
+    
+    public virtual void OnEnter<T>(T arg1)
     {
 
     }

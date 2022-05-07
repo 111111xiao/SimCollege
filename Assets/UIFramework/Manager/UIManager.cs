@@ -43,22 +43,23 @@ public class UIManager
         ParseUIPanelTypeJson();
     }
 
-    public void PushPanel(UIPanelType panelType)
-    {
+    public void BeforePush(UIPanelType panelType){
+
+        List<UIPanelType> needClearPanelTypes = new List<UIPanelType>();
         if (panelStack == null)
         {
             panelStack = new Stack<BasePanel>();
         }
-        if (panelPathDictionary.TryGet(panelType).windowType == UIPanelWindowType.Panel)
+        if (panelDictionary != null && panelDictionary.Count > 0 && panelPathDictionary.TryGet(panelType).windowType == UIPanelWindowType.Panel)
         {
-            while (panelStack.Count > 0)
+            foreach (var kvPair in panelDictionary)
             {
-                PopPanel();
+                needClearPanelTypes.Add(kvPair.Key);
             }
 
-            if (panelDictionary != null)
+            foreach (var type in needClearPanelTypes)
             {
-                panelDictionary.Clear();
+                PopPanel(type);
             }
         }
 
@@ -68,14 +69,26 @@ public class UIManager
             topPanel.OnPause();
         }
 
+    }
+
+    public void PushPanel(UIPanelType panelType)
+    {
+        BeforePush(panelType);
         BasePanel panel = GetPanel(panelType);
         panel.OnEnter();
         panelStack.Push(panel);
     }
-
-    public void PopPanel()
+    public void PushPanel<T>(UIPanelType panelType, T arg1)
     {
-        Debug.Log("PopPanel");
+        BeforePush(panelType);
+        BasePanel panel = GetPanel(panelType);
+        panel.OnEnter(arg1);
+        panelStack.Push(panel);
+    }
+
+    public void PopPanel(UIPanelType panelType)
+    {
+        Debug.Log($"PopPanel{panelType}");
         if (panelStack == null)
         {
             panelStack = new Stack<BasePanel>();
@@ -87,6 +100,7 @@ public class UIManager
         }
 
         BasePanel topPanel = panelStack.Pop();
+        panelDictionary.Remove(panelType);
         topPanel.OnExit();
         if (panelStack.Count <= 0)
         {

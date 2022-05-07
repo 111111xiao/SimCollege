@@ -5,6 +5,9 @@ using UnityEngine;
 public enum UIPanelType
 {
     StartPanel,
+    CreateUserPanel,
     CollegePanel,
     EndPanel,
+    BuildInfoPopup,
+    OutPanel,
 }

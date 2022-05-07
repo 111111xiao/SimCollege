@@ -64,9 +64,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Enum\ActivityTypes.cs" />
+    <Compile Include="Assets\Scripts\Enum\EventType.cs" />
+    <Compile Include="Assets\Scripts\Enum\PlayerDataType.cs" />
+    <Compile Include="Assets\Scripts\Event\CallBack.cs" />
+    <Compile Include="Assets\Scripts\Event\EventCenter.cs" />
+    <Compile Include="Assets\Scripts\Manager\BuildInfoManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\CommonManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\CreateUserManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\SelectManager.cs" />
+    <Compile Include="Assets\Scripts\Panel\BuildInfoPopup.cs" />
     <Compile Include="Assets\Scripts\Panel\CollegePanel.cs" />
+    <Compile Include="Assets\Scripts\Panel\CreateUserPanel.cs" />
+    <Compile Include="Assets\Scripts\Panel\OutPanel.cs" />
     <Compile Include="Assets\Scripts\Panel\StartPanel.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
     <Compile Include="Assets\Scripts\System\SaveSystem.cs" />

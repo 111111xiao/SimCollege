@@ -6,6 +6,11 @@
       "windowTypeString": "Panel"
     },
     {
+      "panelTypeString": "CreateUserPanel",
+      "path": "Prefabs/UIPanel/CreateUserPanel",
+      "windowTypeString": "Panel"
+    },
+    {
       "panelTypeString": "CollegePanel",
       "path": "Prefabs/UIPanel/CollegePanel",
       "windowTypeString": "Panel"
@@ -13,6 +18,16 @@
     {
       "panelTypeString": "EndPanel",
       "path": "Prefabs/UIPanel/EndPanel",
+      "windowTypeString": "Panel"
+    },
+    {
+      "panelTypeString": "BuildInfoPopup",
+      "path": "Prefabs/UIPanel/BuildInfoPopup",
+      "windowTypeString": "Popup"
+    },
+    {
+      "panelTypeString": "OutPanel",
+      "path": "Prefabs/UIPanel/OutPanel",
       "windowTypeString": "Panel"
     }
   ]
